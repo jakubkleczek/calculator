@@ -48,12 +48,15 @@ button {
 
 
 .result {
+    height: 5.5rem;
     grid-column: 1 / -1;
     justify-self: stretch;
+    text-align: end;
     font-size: 4.5rem;
     background-color: rgb(151, 234, 234);
-    color: rgba(0, 0, 0, 0.15);
-    letter-spacing: .3rem;
+    color: rgb(62, 43, 114);
+    /* color: rgba(0, 0, 0, 0.15); */
+    letter-spacing: .45rem;
     font-family: 'Chakra Petch', sans-serif;
 }
 

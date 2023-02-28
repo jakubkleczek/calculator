@@ -1,26 +1,76 @@
-const result = document.querySelector('.result');
-const buttons = document.querySelectorAll('button');
+const display = document.querySelector('.display');
+const controlButtons = document.getElementsByTagName('button');
+const allSymbols = ['+', '-', 'x', '÷', 'C', '='];
 
-let calculation = [];
-let accumulativeCalculation
+let firstValue = '';
+let secondValue = '';
+let symbol  = '';
+let result = '';
 
-function calculate(button) {
-    const value = button.textContent;
-    if (value == "C") {
-        calculation = [];
-        result.textContent = '';
-    } else if (value === "=") {
-        result.textContent = eval(accumulativeCalculation);
-    } else {
-        calculation.push(value);
-        accumulativeCalculation =  calculation.join('');
-        result.textContent = accumulativeCalculation;
-    }
+const calculate = () => {
+  firstValue = parseFloat(firstValue);
+  secondValue = parseFloat(secondValue);
+
+  if (symbol === '+') result = firstValue + secondValue;
+  if (symbol === '-') result = firstValue - secondValue;
+  if (symbol === 'x') result = firstValue * secondValue;
+  if (symbol === '÷') result = firstValue / secondValue;
+
+
+  display.innerText = result;
+  firstValue = result;
+  secondValue = '';
+}
+
+for (let button of controlButtons) {
+    button.addEventListener('click', () => {
+      const { innerText: btnValue } = button;
+      const btnValueIsSymbol = allSymbols.includes(btnValue);
+  
+      if (!secondValue && btnValue === '=') return null
+  
+      if (btnValue === 'C') {
+        firstValue = secondValue = symbol = ''
+        return display.innerText = ''
+      }
+  
+      if (firstValue && btnValueIsSymbol) {
+        secondValue && calculate()
+        symbol = btnValue
+      } else if (!symbol) firstValue += btnValue
+
+        else if (symbol) secondValue += btnValue
+        
+        if (btnValue !== '=') display.innerText += btnValue
+    })
+  }
+
+
+
+
+// const result = document.querySelector('.result')
+// const buttons = document.querySelectorAll('button')
+
+// let calculation = []
+// let accumulativeCalculation
+
+// function calculate(button) {
+//     const value = button.textContent
+//     if (value == "C") {
+//         calculation = []
+//         result.textContent = '.'
+//     } else if (value === "=") {
+//         result.textContent = eval(accumulativeCalculation)
+//     } else {
+//         calculation.push(value)
+//         accumulativeCalculation =  calculation.join('')
+//         result.textContent = accumulativeCalculation
+//     }
 
     
-};
+// };
 
-buttons.forEach(button => button.addEventListener('click', () => calculate(button)))
+// buttons.forEach(button => button.addEventListener('click', () => calculate(button)))
 
 
 

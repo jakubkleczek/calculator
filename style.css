@@ -35,19 +35,19 @@ body {
     align-items: center;
 }
 .container,
-.result,
+.display,
 button {
     border: 4px solid rgb(62, 43, 114);
     color: rgb(62, 43, 114);
 }
 
-.result,
+.display,
 button {
     border-radius: 1rem;
 }
 
 
-.result {
+.display {
     height: 5.5rem;
     grid-column: 1 / -1;
     justify-self: stretch;

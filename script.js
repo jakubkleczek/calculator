@@ -43,7 +43,30 @@ for (let button of controlButtons) {
         
         if (btnValue !== '=') display.innerText += btnValue
     })
-  }
+}
+
+// function truncateString(str, num) {
+//   if (str.length <= num) {
+//     return str
+//   }
+//   return str.slice(0, num) + '...'
+// }
+
+// const truncate = (str, len) => {
+//    if (str.length > len) {
+//       if (len <= 3) {
+//          return str.slice(0, len - 3) + "...";
+//       }
+//       else {
+//          return str.slice(0, len) + "...";
+//       };
+//    }
+//    else {
+//       return str;
+//    };
+// };
+
+
 
 
 
